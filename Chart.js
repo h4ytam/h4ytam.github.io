@@ -16,22 +16,22 @@ Chart.prototype.piePanneau = function() {
       {
         type: 'FIXE',
         litres: 501.9,
-        color: am4core.color('#3333cc')
+        color: am4core.color('#ff9999')
       },
       {
         type: 'Déroulant',
         litres: 301.9,
-        color: am4core.color('#F1D302')
+        color: am4core.color('#a366ff')
       },
       {
         type: 'Unipole',
         litres: 201.1,
-        color: am4core.color('#ff0066')
+        color: am4core.color('#adebad')
       },
       {
         type: 'Façade',
         litres: 165.8,
-        color: am4core.color('#800000')
+        color: am4core.color('#ff99ff')
       }
     ];
 
@@ -153,22 +153,22 @@ Chart.prototype.columnChart = function() {
       {
         type: 'FIXE',
         visits: 15000,
-        color: am4core.color('#3333cc')
+        color: am4core.color('#ff9999')
       },
       {
         type: 'Déroulant',
         visits: 20000,
-        color: am4core.color('#F1D302')
+        color: am4core.color('#a366ff')
       },
       {
         type: 'Unipole',
         visits: 30000,
-        color: am4core.color('#ff0066')
+        color: am4core.color('#adebad')
       },
       {
         type: 'Façade',
         visits: 43000,
-        color: am4core.color('#800000')
+        color: am4core.color('#ff99ff')
       }
     ];
 
