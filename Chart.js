@@ -2,6 +2,7 @@ class Chart {
   constructor() {}
 }
 
+
 Chart.prototype.piePanneau = function() {
   am4core.ready(function() {
     // Themes begin
@@ -16,22 +17,22 @@ Chart.prototype.piePanneau = function() {
       {
         type: 'FIXE',
         litres: 501.9,
-        color: am4core.color('#ff9999')
+        color: am4core.color('#e60073')
       },
       {
         type: 'Déroulant',
         litres: 301.9,
-        color: am4core.color('#a366ff')
+        color: am4core.color('#751aff')
       },
       {
         type: 'Unipole',
         litres: 201.1,
-        color: am4core.color('#adebad')
+        color: am4core.color('#993366')
       },
       {
         type: 'Façade',
         litres: 165.8,
-        color: am4core.color('#ff99ff')
+        color: am4core.color('#bf4040')
       }
     ];
 
@@ -153,22 +154,22 @@ Chart.prototype.columnChart = function() {
       {
         type: 'FIXE',
         visits: 15000,
-        color: am4core.color('#ff9999')
+        color: am4core.color('#e60073')
       },
       {
         type: 'Déroulant',
         visits: 20000,
-        color: am4core.color('#a366ff')
+        color: am4core.color('#751aff')
       },
       {
         type: 'Unipole',
         visits: 30000,
-        color: am4core.color('#adebad')
+        color: am4core.color('#993366')
       },
       {
         type: 'Façade',
         visits: 43000,
-        color: am4core.color('#ff99ff')
+        color: am4core.color('#bf4040')
       }
     ];
 
@@ -218,3 +219,4 @@ Chart.prototype.columnChart = function() {
     columnTemplate.strokeOpacity = 1;
   }); // end am4core.ready()
 };
+
