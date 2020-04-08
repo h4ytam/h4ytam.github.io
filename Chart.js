@@ -262,6 +262,7 @@ Chart.prototype.ChiffreDaffaire=function(){
     dateAxis.startLocation = 0.5;
     dateAxis.endLocation = 0.5;
 
+
     // Create value axis
     var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
@@ -276,6 +277,7 @@ Chart.prototype.ChiffreDaffaire=function(){
     axisTitle.fontWeight = 600;
     axisTitle.align = 'left';
     axisTitle.paddingLeft = 10;
+
     // Create series
     var series = chart.series.push(new am4charts.LineSeries());
     series.dataFields.valueY = "visits";
@@ -283,20 +285,37 @@ Chart.prototype.ChiffreDaffaire=function(){
     series.strokeWidth = 3;
     series.tooltipText = "{valueY.value}";
     series.fillOpacity = 0.1;
+    series.stroke =  am4core.color("#00b3b3");
+    series.fill =  am4core.color("#00b3b3");
+
 
     // Create a range to change stroke for values below 0
     var range = valueAxis.createSeriesRange(series);
     range.value = 0;
     range.endValue = -1000;
     range.contents.stroke = chart.colors.getIndex(4);
-    range.contents.fill = range.contents.stroke;
+    range.contents.fill = '#00b3b3';
     range.contents.strokeOpacity = 0.7;
     range.contents.fillOpacity = 0.1;
+    range.contents.stroke = '#0352b5';
 
     // Add cursor
     chart.cursor = new am4charts.XYCursor();
     chart.cursor.xAxis = dateAxis;
     chart.scrollbarX = new am4core.Scrollbar();
+    chart.cursor.lineY.stroke = am4core.color("#00b3b3");
+    chart.zoomOutButton.background.fill = am4core.color("#00b3b3");
+    chart.zoomOutButton.background.states.getKey("hover").properties.fill = am4core.color("#00cccc");
+    chart.zoomOutButton.background.states.getKey("down").properties.fill = am4core.color("#00cccc");
+
+    // axis tooltip
+    let axisTooltip = categoryAxis.tooltip;
+    axisTooltip.background.fill = am4core.color("#00b3b3");
+    axisTooltip.background.strokeWidth = 0;
+    axisTooltip.background.cornerRadius = 3;
+    axisTooltip.background.pointerLength = 0;
+    axisTooltip.dy = 5;
+
 
     series.tooltip.getFillFromObject = false;
     series.tooltip.adapter.add("x", (x, target)=>{
