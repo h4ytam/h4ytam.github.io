@@ -9,7 +9,11 @@
     />
     <link rel="stylesheet" href="./style.css" rel="stylesheet" />
     <link rel="stylesheet" href="./fontawesome-pro-5.12.0-web/js/all.js" />
-    <link rel="stylesheet" href="./fontawesome-pro-5.12.0-web/css/all.css" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./fontawesome-pro-5.12.0-web/css/all.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
     <script src="Chart.js"></script>
 
@@ -24,6 +28,7 @@
       chart.statusChart();
       chart.columnChart();
       chart.ChiffreDaffaire();
+      chart.loadRegions();
     </script>
     <title>Statistiques</title>
   </head>
@@ -145,6 +150,9 @@
                   L'evolution de chiffre d'affaire par rapport du temps
                 </h3>
               </div>
+              <select class="loadRegions" name="state">
+
+              </select>
               <div id="evolutionChart"></div>
             </div>
             <!-- Map -->

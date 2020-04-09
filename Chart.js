@@ -219,14 +219,34 @@ Chart.prototype.columnChart = function() {
     columnTemplate.strokeOpacity = 1;
   }); // end am4core.ready()
 };
+
+Chart.prototype.loadRegions=function () {
+   $.ajax({
+    type: 'GET',
+    url: 'regions.json', // js is lowercase!
+    dataType: 'json',
+    success: function(data) {
+      console.log(data);
+     for (let i = 0; i < data.length; i++) {
+      $(".loadRegions").append(`<option id="loading">${data[i].region}</option>`);
+     }
+
+    //  return $('.loadRegions').select2()
+    }
+  }) ;
+
+
+
+}
+
 Chart.prototype.ChiffreDaffaire=function(){
+
 
   am4core.ready(function() {
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
     // Themes end
-
     // Create chart instance
     var chart = am4core.create("evolutionChart", am4charts.XYChart);
 
@@ -236,7 +256,7 @@ Chart.prototype.ChiffreDaffaire=function(){
       var chartData = [];
       var firstDate = new Date();
       firstDate.setDate( firstDate.getDate() - 150 );
-      var visits = 4000;
+      var visits = 10;
       var b = 0.6;
       for ( var i = 0; i < 150; i++ ) {
         // we create date objects here. In your data, you can have date strings
@@ -248,7 +268,7 @@ Chart.prototype.ChiffreDaffaire=function(){
             b = 0.4;
         }
         visits +=  Math.round( Math.random() * ( 40 + i ) ) + 100 + i;
-//  Math.round((Math.random()<b?1:-1)*Math.random()*10);
+        // visits +=Math.round((Math.random()<b?1:-1)*Math.random()*10);
         chartData.push( {
           date: newDate,
           visits: visits
@@ -309,12 +329,13 @@ Chart.prototype.ChiffreDaffaire=function(){
     chart.zoomOutButton.background.states.getKey("down").properties.fill = am4core.color("#00cccc");
 
     // axis tooltip
-    let axisTooltip = categoryAxis.tooltip;
+    let axisTooltip =categoryAxis.tooltip;
     axisTooltip.background.fill = am4core.color("#00b3b3");
     axisTooltip.background.strokeWidth = 0;
     axisTooltip.background.cornerRadius = 3;
     axisTooltip.background.pointerLength = 0;
     axisTooltip.dy = 5;
+
 
 
     series.tooltip.getFillFromObject = false;
