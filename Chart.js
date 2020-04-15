@@ -296,7 +296,9 @@ Chart.prototype.ChiffreDaffaire=function(){
        }
        $(".loadRegions").change(function(){
         var selectedCountry = $(this).children("option:selected").val();
-        chart.data = generatechartData();
+        selectedCountry =chart.data = generatechartData();
+console.log(selectedCountry);
+
         // alert("You have selected the country - " + selectedCountry);
     });
 
@@ -442,9 +444,9 @@ Chart.prototype.remplissage=function(){
       success: function(data) {
         console.log(data);
        for (let i = 0; i < data.length; i++) {
-        $(".loadRegions").append(`<option value="${data[i].region}" id="loading">${data[i].region}</option>`);
+        $(".loadRegions2").append(`<option value="${data[i].region}" id="loading">${data[i].region}</option>`);
        }
-       $(".loadRegions").change(function(){
+       $(".loadRegions2").change(function(){
         var selectedCountry = $(this).children("option:selected").val();
         chart.data = generatechartData();
         // alert("You have selected the country - " + selectedCountry);

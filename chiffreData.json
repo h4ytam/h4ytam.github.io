@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "date": "2020-04-17",
+    "prix": "1500",
+    "region": "Taza Al Hoceima Taounat"
+  },
+  {
+    "id": 2,
+    "date": "2020-06-05",
+    "prix": "2000",
+    "region": "L'Oriental"
+  },
+  {
+    "id": 3,
+    "date": "2020-06-05",
+    "prix":"15000",
+    "region": "Chaouia Ouardigha"
+  },
+  {
+    "id": 4,
+    "date": "2020-12-03",
+    "prix":"45000",
+    "region": "Doukkala Abda"
+  },
+  {
+    "id": 5,
+    "date": "2020-12-29",
+    "prix":"75250",
+    "region": "Fes Boulemane"
+  },
+//   {
+//     "id": 6,
+//     "date": "",
+//     "region": "Gharb Chrarda Beni Hssen"
+//   },
+//   {
+//     "id": 7,
+//     "date": "",
+//     "region": "Grand Casablanca"
+//   },
+//   {
+//     "id": 8,
+//     "date": "",
+//     "region": "Guelmim Es semara"
+//   },
+//   {
+//     "id": 9,
+//     "date": "",
+//     "region": "Laayoune Boujdour Sakia El Hamra"
+//   },
+//   {
+//     "id": 10,
+//     "date": "",
+//     "region": "Marrakech Tensift Al Haouz"
+//   },
+//   {
+//     "id": 11,
+//     "date": "",
+//     "region": "Meknes Tafilalet"
+//   },
+//   {
+//     "id": 12,
+//     "date": "",
+//     "region": "Oued Ed dahab Lagouira"
+//   },
+//   {
+//     "id": 13,
+//     "date": "",
+//     "region": "Rabat Sale Zemmour Zear"
+//   },
+//   {
+//     "id": 14,
+//     "date": "",
+//     "region": "Tadla Azilal"
+//   },
+//   {
+//     "id": 15,
+//     "date": "",
+//     "region": "Tanger Tetouan"
+//   },
+//   {
+//     "id": 16,
+//     "date": "",
+//     "region": "Souss-Massa-Draâ"
+//   }
+// ]
