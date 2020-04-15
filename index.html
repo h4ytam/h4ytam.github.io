@@ -29,6 +29,7 @@
       chart.columnChart();
       chart.ChiffreDaffaire();
       chart.loadRegions();
+      chart.remplissage();
     </script>
     <title>Statistiques</title>
   </head>
@@ -155,6 +156,18 @@
               </select>
               <div id="evolutionChart"></div>
             </div>
+              <!-- taux de remplissage par rapport au temps  -->
+              <div class="left-status-chart">
+                <div class="left-status-headline">
+                  <h3>
+                    Taux de remplissage par rapport au temps
+                  </h3>
+                </div>
+                <select class="loadRegions" name="state">
+
+                </select>
+                <div id="remplissageChart"></div>
+              </div>
             <!-- Map -->
           </div>
           <div class="right-content">
@@ -173,7 +186,7 @@
     />
     <script>
       const map = new Map();
-      map.DisplayMap();
+      // map.DisplayMap();
       map.ScrollFixed();
 
     </script>

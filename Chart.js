@@ -275,7 +275,7 @@ Chart.prototype.ChiffreDaffaire=function(){
         if(i > 80){
             b = 0.4;
         }
-        visits +=  Math.round( Math.random() * ( 40 + i ) )*Math.random()*10 ;
+        visits +=  Math.floor(Math.round( Math.random() * ( 40 + i ) )*Math.random()*10);
         // visits +=Math.round((Math.random()<b?1:-1)*Math.random()*10);+ 100 + i
         chartData.push( {
           date: newDate,
@@ -292,16 +292,14 @@ Chart.prototype.ChiffreDaffaire=function(){
       success: function(data) {
         console.log(data);
        for (let i = 0; i < data.length; i++) {
-        $(".loadRegions").append(`<option id="loading">${data[i].region}</option>`);
+        $(".loadRegions").append(`<option value="${data[i].region}" id="loading">${data[i].region}</option>`);
        }
-
-      //  return $('.loadRegions').select2()
-      $('.loadRegions').on('click',function(){
-        var _this = this;
-        // console.log('ererz');
+       $(".loadRegions").change(function(){
+        var selectedCountry = $(this).children("option:selected").val();
         chart.data = generatechartData();
-        // generatechartData()
-      })
+        // alert("You have selected the country - " + selectedCountry);
+    });
+
       }
     }) ;
 
@@ -331,21 +329,40 @@ Chart.prototype.ChiffreDaffaire=function(){
     series.dataFields.valueY = "visits";
     series.dataFields.dateX = "date";
     series.strokeWidth = 3;
-    series.tooltipText = "{valueY.value}";
+    // series.tooltipText = "{valueY.value}";
+    // series.tooltipText = "{dateX.value}";
     series.fillOpacity = 0.1;
     series.stroke =  am4core.color("#00b3b3");
     series.fill =  am4core.color("#00b3b3");
 
+    var series3 = chart.series.push(new am4charts.LineSeries());
+    series3.dataFields.valueY = "visits";
+    series3.dataFields.dateX = "date";
+    series3.fill =  am4core.color("#00b3b3");
+
+    // series3.name = "Bicycles";
+    // series3.strokeWidth = 3;
+    // series3.tensionX = 0.7;
+    // series3.bullets.push(new am4charts.CircleBullet());
+
+    series3.tooltipText = `Prix: {visits}Dh
+    Date: {date}
+    `;
+    // series3.tooltip.pointerOrientation = "vertical";
+
+
+
+
 
     // Create a range to change stroke for values below 0
-    var range = valueAxis.createSeriesRange(series);
-    range.value = 0;
-    range.endValue = -1000;
-    range.contents.stroke = chart.colors.getIndex(4);
-    range.contents.fill = '#00b3b3';
-    range.contents.strokeOpacity = 0.7;
-    range.contents.fillOpacity = 0.1;
-    range.contents.stroke = '#0352b5';
+    // var range = valueAxis.createSeriesRange(series);
+    // range.value = 0;
+    // range.endValue = -1000;
+    // range.contents.stroke = chart.colors.getIndex(4);
+    // range.contents.fill = '#00b3b3';
+    // range.contents.strokeOpacity = 0.7;
+    // range.contents.fillOpacity = 0.1;
+    // range.contents.stroke = '#0352b5';
 
     // Add cursor
     chart.cursor = new am4charts.XYCursor();
@@ -353,29 +370,176 @@ Chart.prototype.ChiffreDaffaire=function(){
     chart.scrollbarX = new am4core.Scrollbar();
     chart.cursor.lineY.stroke = am4core.color("#00b3b3");
     chart.zoomOutButton.background.fill = am4core.color("#00b3b3");
-    chart.zoomOutButton.background.states.getKey("hover").properties.fill = am4core.color("#00cccc");
-    chart.zoomOutButton.background.states.getKey("down").properties.fill = am4core.color("#00cccc");
+    chart.zoomOutButton.background.states.getKey("hover").properties.fill = am4core.color("#00b3b3");
+    chart.zoomOutButton.background.states.getKey("down").properties.fill = am4core.color("#00b3b3");
 
 
-    // // axis tooltip
-    // let axisTooltip =categoryAxis.tooltip;
-    // axisTooltip.background.fill = am4core.color("#00b3b3");
-    // axisTooltip.background.strokeWidth = 0;
-    // axisTooltip.background.cornerRadius = 3;
-    // axisTooltip.background.pointerLength = 0;
-    // axisTooltip.dy = 5;
 
 
-    series.tooltip.getFillFromObject = false;
-    series.tooltip.adapter.add("x", (x, target)=>{
-        if(series.tooltip.tooltipDataItem.valueY < 0){
-            series.tooltip.background.fill = chart.colors.getIndex(4);
+
+
+
+    // series.tooltip.getFillFromObject = false;
+    // series.tooltip.adapter.add("x", (x, target)=>{
+    //     if(series.tooltip.tooltipDataItem.valueY < 0){
+    //         series.tooltip.background.fill = chart.colors.getIndex(4);
+    //     }
+    //     else{
+    //         series.tooltip.background.fill = chart.colors.getIndex(0);
+    //     }
+    //     return x;
+    // })
+
+    }); // end am4core.ready()
+}
+
+
+Chart.prototype.remplissage=function(){
+
+
+  am4core.ready(function() {
+
+
+
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    // Create chart instance
+    var chart = am4core.create("remplissageChart", am4charts.XYChart);
+
+    // Add data
+    chart.data = generatechartData();
+    function generatechartData() {
+      var chartData = [];
+      var firstDate = new Date();
+      firstDate.setDate( firstDate.getDate() - 150 );
+      var visits = 4;
+      var b = 0.6;
+      for ( var i = 0; i < 150; i++ ) {
+        // we create date objects here. In your data, you can have date strings
+        // and then set format of your dates using chart.dataDateFormat property,
+        // however when possible, use date objects, as this will speed up chart rendering.
+        var newDate = new Date( firstDate );
+        newDate.setDate( newDate.getDate() + i );
+        if(i > 80){
+            b = 0.4;
         }
-        else{
-            series.tooltip.background.fill = chart.colors.getIndex(0);
-        }
-        return x;
-    })
+        visits +=  Math.floor(Math.round( Math.random() * ( 40 + i ) )*Math.random());
+        // visits +=Math.round((Math.random()<b?1:-1)*Math.random()*10);+ 100 + i
+        chartData.push( {
+          date: newDate,
+          visits: visits
+        } );
+      }
+      return chartData;
+    }
+
+    $.ajax({
+      type: 'GET',
+      url: 'regions.json', // js is lowercase!
+      dataType: 'json',
+      success: function(data) {
+        console.log(data);
+       for (let i = 0; i < data.length; i++) {
+        $(".loadRegions").append(`<option value="${data[i].region}" id="loading">${data[i].region}</option>`);
+       }
+       $(".loadRegions").change(function(){
+        var selectedCountry = $(this).children("option:selected").val();
+        chart.data = generatechartData();
+        // alert("You have selected the country - " + selectedCountry);
+    });
+
+      }
+    }) ;
+
+    // Create axes
+    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    dateAxis.startLocation = 0.5;
+    dateAxis.endLocation = 0.5;
+
+
+    // Create value axis
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+    var topContainer = chart.chartContainer.createChild(am4core.Container);
+    topContainer.layout = 'absolute';
+    topContainer.toBack();
+    topContainer.paddingBottom = 15;
+    topContainer.width = am4core.percent(100);
+
+    var axisTitle = topContainer.createChild(am4core.Label);
+    axisTitle.text = 'Taux de remplissage';
+    axisTitle.fontWeight = 600;
+    axisTitle.align = 'left';
+    axisTitle.paddingLeft = 10;
+
+    // Create series
+    // 9966ff
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.valueY = "visits";
+    series.dataFields.dateX = "date";
+    series.strokeWidth = 3;
+    // series.tooltipText = "{valueY.value}";
+    // series.tooltipText = "{dateX.value}";
+    series.fillOpacity = 0.1;
+    series.stroke =  am4core.color("#9966ff");
+    series.fill =  am4core.color("#9966ff");
+
+    var series3 = chart.series.push(new am4charts.LineSeries());
+    series3.dataFields.valueY = "visits";
+    series3.dataFields.dateX = "date";
+    series3.fill =  am4core.color("#9966ff");
+
+    // series3.name = "Bicycles";
+    // series3.strokeWidth = 3;
+    // series3.tensionX = 0.7;
+    // series3.bullets.push(new am4charts.CircleBullet());
+
+    series3.tooltipText = `Taux de remplissage: {visits}
+    Date: {date}
+    `;
+    // series3.tooltip.pointerOrientation = "vertical";
+
+
+
+
+
+    // Create a range to change stroke for values below 0
+    // var range = valueAxis.createSeriesRange(series);
+    // range.value = 0;
+    // range.endValue = -1000;
+    // range.contents.stroke = chart.colors.getIndex(4);
+    // range.contents.fill = '#00b3b3';
+    // range.contents.strokeOpacity = 0.7;
+    // range.contents.fillOpacity = 0.1;
+    // range.contents.stroke = '#0352b5';
+
+    // Add cursor
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.xAxis = dateAxis;
+    chart.scrollbarX = new am4core.Scrollbar();
+    chart.cursor.lineY.stroke = am4core.color("#9966ff");
+    chart.zoomOutButton.background.fill = am4core.color("#9966ff");
+    chart.zoomOutButton.background.states.getKey("hover").properties.fill = am4core.color("#9966ff");
+    chart.zoomOutButton.background.states.getKey("down").properties.fill = am4core.color("#9966ff");
+
+
+
+
+
+
+
+    // series.tooltip.getFillFromObject = false;
+    // series.tooltip.adapter.add("x", (x, target)=>{
+    //     if(series.tooltip.tooltipDataItem.valueY < 0){
+    //         series.tooltip.background.fill = chart.colors.getIndex(4);
+    //     }
+    //     else{
+    //         series.tooltip.background.fill = chart.colors.getIndex(0);
+    //     }
+    //     return x;
+    // })
 
     }); // end am4core.ready()
 }
