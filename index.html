@@ -30,6 +30,7 @@
       chart.ChiffreDaffaire();
       chart.loadRegions();
       chart.remplissage();
+      chart.pieAnomalie();
     </script>
     <title>Statistiques</title>
   </head>
@@ -167,6 +168,48 @@
 
                 </select>
                 <div id="remplissageChart"></div>
+              </div>
+               <!-- L'Anomalie par rapport les faces  -->
+              <div class="left-status-chart">
+                <div class="left-status-headline">
+                  <h3>
+                    L'Anomalie par rapport les faces
+                  </h3>
+                </div>
+                <div id="anomalieChart"></div>
+                <div class="pie-info">
+                  <ul class="pie-list">
+                    <li class="pie-links">
+                      <i
+                        class="fal fa-rectangle-portrait"
+                        style=" background-color: #e60073;"
+                      ></i
+                      >FIXE
+                    </li>
+                    <li class="pie-links">
+                      <i
+                        class="fal fa-rectangle-portrait"
+                        style="  background-color: #751aff;"
+                      ></i
+                      >Déroulant
+                    </li>
+                    <li class="pie-links">
+                      <i
+                        class="fal fa-rectangle-portrait"
+                        style="background-color:#993366"
+                      ></i
+                      >Unipole
+                    </li>
+                    <li class="pie-links">
+                      <i
+                        class="fal fa-rectangle-portrait"
+                        style="  background-color:#bf4040
+                      "
+                      ></i
+                      >Façade
+                    </li>
+                  </ul>
+                </div>
               </div>
             <!-- Map -->
           </div>

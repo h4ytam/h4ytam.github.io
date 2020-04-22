@@ -545,3 +545,52 @@ Chart.prototype.remplissage=function(){
 
     }); // end am4core.ready()
 }
+Chart.prototype.pieAnomalie = function() {
+  am4core.ready(function() {
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    // Create chart instance
+    var chart = am4core.create('anomalieChart', am4charts.PieChart);
+    // FIXE, Déroulant, Unipole, Façade;
+    // Add data
+    chart.data = [
+      {
+        type: 'FIXE',
+        litres: 601.9,
+        color: am4core.color('#e60073')
+      },
+      {
+        type: 'Déroulant',
+        litres: 101.9,
+        color: am4core.color('#751aff')
+      },
+      {
+        type: 'Unipole',
+        litres: 90.1,
+        color: am4core.color('#993366')
+      },
+      {
+        type: 'Façade',
+        litres: 151.8,
+        color: am4core.color('#bf4040')
+      }
+    ];
+
+    // Add and configure Series
+    var pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = 'litres';
+    pieSeries.dataFields.category = 'type';
+    pieSeries.slices.template.propertyFields.fill = 'color';
+
+    // pieSeries.slices.template.stroke = am4core.color('#fff');
+    pieSeries.slices.template.strokeWidth = 2;
+    pieSeries.slices.template.strokeOpacity = 1;
+
+    // This creates initial animation
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+  }); // end am4core.ready()
+};
