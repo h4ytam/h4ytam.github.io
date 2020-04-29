@@ -271,19 +271,17 @@ Chart.prototype.ChiffreDaffaire=function(){
     });
 
 
-
     $('.changeData').on('click',function(e){
       e.preventDefault();
       // const selectedRegion.val()
-
-     const loadRegionsData= $(".loadRegions").val()
+    const loadRegionsData= $(".loadRegions").val()
      const loadFacettesData= $(".loadFacettes").val()
      const loadFaceData= $(".loadFace").val()
      const loadVilleData= $(".loadVille").val()
      const loadPanneauData= $(".loadPanneau").val()
       console.log(loadRegionsData,loadFacettesData,loadFaceData,loadVilleData,loadPanneauData);
       chart.data = generatechartData();
-      // return false
+      return false
     })
     $.ajax({
       type: 'GET',
