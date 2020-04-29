@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "type": "Panneau1"
+  },
+  {
+    "id": 2,
+    "type": "Panneau2"
+  },
+  {
+    "id": 3,
+    "type": "Panneau3"
+  },
+  {
+    "id": 4,
+    "type": "Panneau4"
+  }
+]

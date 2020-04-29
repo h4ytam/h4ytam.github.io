@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "etat": "Disponible"
+  },
+  {
+    "id": 2,
+    "etat": "Commandé"
+  },
+  {
+    "id": 3,
+    "etat": "Réservé normal"
+  },
+  {
+    "id": 4,
+    "etat": "Soclé"
+  },
+  {
+    "id": 5,
+    "etat": "Réservé bloquant"
+  },
+  {
+    "id": 6,
+    "etat": "Mixte"
+  }
+]

@@ -1,5 +1,8 @@
 class Chart {
-  constructor() {}
+  constructor() {
+
+  }
+
 }
 
 
@@ -220,29 +223,7 @@ Chart.prototype.columnChart = function() {
   }); // end am4core.ready()
 };
 
-Chart.prototype.loadRegions=function () {
-  //  $.ajax({
-  //   type: 'GET',
-  //   url: 'regions.json', // js is lowercase!
-  //   dataType: 'json',
-  //   success: function(data) {
-  //     console.log(data);
-  //    for (let i = 0; i < data.length; i++) {
-  //     $(".loadRegions").append(`<option id="loading">${data[i].region}</option>`);
-  //    }
 
-  //   //  return $('.loadRegions').select2()
-  //   $('.loadRegions').on('click',function(){
-  //     var _this = this;
-
-  //     _this.ChiffreDaffaire()
-  //   })
-  //   }
-  // }) ;
-
-
-
-}
 
 Chart.prototype.ChiffreDaffaire=function(){
 
@@ -285,6 +266,25 @@ Chart.prototype.ChiffreDaffaire=function(){
       return chartData;
     }
 
+    $(".fa-angle-double-down").click(function(){
+      $(".sreach-Area").slideToggle();
+    });
+
+
+
+    $('.changeData').on('click',function(e){
+      e.preventDefault();
+      // const selectedRegion.val()
+
+     const loadRegionsData= $(".loadRegions").val()
+     const loadFacettesData= $(".loadFacettes").val()
+     const loadFaceData= $(".loadFace").val()
+     const loadVilleData= $(".loadVille").val()
+     const loadPanneauData= $(".loadPanneau").val()
+      console.log(loadRegionsData,loadFacettesData,loadFaceData,loadVilleData,loadPanneauData);
+      chart.data = generatechartData();
+      // return false
+    })
     $.ajax({
       type: 'GET',
       url: 'regions.json', // js is lowercase!
@@ -295,15 +295,113 @@ Chart.prototype.ChiffreDaffaire=function(){
         $(".loadRegions").append(`<option value="${data[i].region}" id="loading">${data[i].region}</option>`);
        }
        $(".loadRegions").change(function(){
-        var selectedCountry = $(this).children("option:selected").val();
-        selectedCountry =chart.data = generatechartData();
-console.log(selectedCountry);
-
-        // alert("You have selected the country - " + selectedCountry);
+          // alert($(this).val());
+        // var selectedRegion = $(this).children("option:selected").val();
+        // console.log(selectedRegion);
     });
 
       }
     }) ;
+
+    // loading facettes
+    $.ajax({
+      type: 'GET',
+      url: 'facettes.json', // js is lowercase!
+      dataType: 'json',
+      success: function(data) {
+        console.log(data);
+       for (let i = 0; i < data.length; i++) {
+        $(".loadFacettes").append(`<option value="${data[i].etat}" id="loading">${data[i].etat}</option>`);
+       }
+
+       $(".loadFacettes").change(function(){
+        // var selectedFacettes = $(this).children("option:selected").val();
+        // console.log(selectedFacettes)
+    });
+
+      }
+    }) ;
+    // loading face
+    $.ajax({
+      type: 'GET',
+      url: 'face.json', // js is lowercase!
+      dataType: 'json',
+      success: function(data) {
+        console.log(data);
+       for (let i = 0; i < data.length; i++) {
+        $(".loadFace").append(`<option value="${data[i].type}" id="loading">${data[i].type}</option>`);
+       }
+
+       $(".loadFace").change(function(){
+        // var selectedFace = $(this).children("option:selected").val();
+        // console.log(selectedFace)
+    });
+      }
+    }) ;
+    // loading ville
+    $.ajax({
+      type: 'GET',
+      url: 'ville.json', // js is lowercase!
+      dataType: 'json',
+      success: function(data) {
+        const dataVille=data
+        // console.log(data.ville);
+        // const newData=Object.entries(data)
+       for (let i = 0; i < dataVille.length; i++) {
+        $(".loadVille").append(`<option value="${dataVille[i].ville}" id="loading">${dataVille[i].ville}</option>`);
+       }
+       $(".loadVille").change(function(){
+        // var selectedVille = $(this).children("option:selected").val();
+        // console.log(selectedVille);
+
+        // chart.data = generatechartData();
+        // alert("You have selected the country - " + selectedVille);
+    });
+      }
+    }) ;
+    // loading panneau
+    $.ajax({
+      type: 'GET',
+      url: 'panneau.json', // js is lowercase!
+      dataType: 'json',
+      success: function(data) {
+        // const dataVille=data.ville
+        // console.log(data.ville);
+        // const newData=Object.entries(data)
+       for (let i = 0; i < data.length; i++) {
+        //  $('.loadPanneau').select2()
+        $(".loadPanneau").append(`<option value="${data[i].type}" id="loading">${data[i].type}</option>`);
+       }
+       $(".loadPanneau").change(function(){
+        // var selectedPannea = $(this).children("option:selected").val();
+        // console.log(selectedPannea);
+
+    });
+      }
+
+    }) ;
+    $.ajax({
+      type: 'GET',
+      url: 'quartier.json', // js is lowercase!
+      dataType: 'json',
+      success: function(data) {
+        // const dataVille=data.ville
+        // console.log(data.ville);
+        // const newData=Object.entries(data)
+       for (let i = 0; i < data.length; i++) {
+        //  $('.loadPanneau').select2()
+        $(".loadQuartier").append(`<option value="${data[i].type}" id="loading">${data[i].type}</option>`);
+       }
+       $(".loadQuartier").change(function(){
+        // var selectedQuartier = $(this).children("option:selected").val();
+
+
+    });
+      }
+
+    }) ;
+
+
 
     // Create axes
     var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
@@ -352,10 +450,6 @@ console.log(selectedCountry);
     `;
     // series3.tooltip.pointerOrientation = "vertical";
 
-
-
-
-
     // Create a range to change stroke for values below 0
     // var range = valueAxis.createSeriesRange(series);
     // range.value = 0;
@@ -375,12 +469,6 @@ console.log(selectedCountry);
     chart.zoomOutButton.background.states.getKey("hover").properties.fill = am4core.color("#00b3b3");
     chart.zoomOutButton.background.states.getKey("down").properties.fill = am4core.color("#00b3b3");
 
-
-
-
-
-
-
     // series.tooltip.getFillFromObject = false;
     // series.tooltip.adapter.add("x", (x, target)=>{
     //     if(series.tooltip.tooltipDataItem.valueY < 0){
@@ -397,13 +485,7 @@ console.log(selectedCountry);
 
 
 Chart.prototype.remplissage=function(){
-
-
   am4core.ready(function() {
-
-
-
-
     // Themes begin
     am4core.useTheme(am4themes_animated);
     // Themes end
@@ -437,6 +519,7 @@ Chart.prototype.remplissage=function(){
       return chartData;
     }
 
+    // loading regions
     $.ajax({
       type: 'GET',
       url: 'regions.json', // js is lowercase!
@@ -454,6 +537,8 @@ Chart.prototype.remplissage=function(){
 
       }
     }) ;
+
+
 
     // Create axes
     var dateAxis = chart.xAxes.push(new am4charts.DateAxis());

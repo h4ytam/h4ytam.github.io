@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="./fontawesome-pro-5.12.0-web/css/all.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-
     <script src="Chart.js"></script>
 
     <!-- Resources -->
@@ -28,7 +25,7 @@
       chart.statusChart();
       chart.columnChart();
       chart.ChiffreDaffaire();
-      chart.loadRegions();
+      // chart.loadRegions();
       chart.remplissage();
       chart.pieAnomalie();
     </script>
@@ -152,9 +149,23 @@
                   L'evolution de chiffre d'affaire par rapport du temps
                 </h3>
               </div>
-              <select class="loadRegions" name="state">
+              <i class="fas fa-angle-double-down"></i>
+              <div class="sreach-Area">
+                <select class="loadRegions" name="state">
+                </select>
+                <select class="loadFacettes" name="state">
+                </select>
+                <select class="loadFace" name="state">
+                </select>
+                <select class="loadPanneau" name="state">
+                </select>
+                <select class="loadQuartier" name="state">
+                </select>
+                <select class="loadVille" name="state">
+                </select>
+                <button class="changeData" type="submit">Voir</button>
+              </div>
 
-              </select>
               <div id="evolutionChart"></div>
             </div>
               <!-- taux de remplissage par rapport au temps  -->

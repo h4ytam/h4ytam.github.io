@@ -204,3 +204,34 @@
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+.sreach-Area {
+  background-color: #39c1ff6e;
+  height: 90px;
+}
+.loadRegions,
+.loadVille,
+.loadPanneau,
+.loadQuartier,
+.loadFace,
+.loadFacettes {
+  width: 150px;
+  border: 1px solid #8e8f90;
+  height: 26px;
+  margin: 7px 6px 4px 4px;
+}
+.changeData {
+  background-color: #ffffff;
+  outline: none;
+  height: 25px;
+  border: 1px solid #94989c;
+  padding: 2px 25px 2px 25px;
+  color: #0e0e0e;
+  cursor: pointer;
+}
+.left-status-chart > i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  /* color: #fff; */
+}

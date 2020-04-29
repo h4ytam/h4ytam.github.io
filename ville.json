@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "ville": "Casablanca"
+  },
+  {
+    "id": 2,
+    "ville": "Rabat"
+  },
+  {
+    "id": 3,
+    "ville": "Tanger"
+  },
+  {
+    "id": 4,
+    "ville": "Sale"
+  },
+  {
+    "id": 5,
+    "ville": "Fes"
+  },
+  {
+    "id": 6,
+    "ville": "Agadir"
+  }
+]

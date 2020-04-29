@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "type": "Fixe"
+  },
+  {
+    "id": 2,
+    "type": "Déroulant"
+  },
+  {
+    "id": 3,
+    "type": "Unipole"
+  },
+  {
+    "id": 4,
+    "type": "Façade"
+  }
+]
