@@ -28,6 +28,7 @@
       // chart.loadRegions();
       chart.remplissage();
       chart.pieAnomalie();
+      chart.anomalieChartLine();
     </script>
     <title>Statistiques</title>
   </head>
@@ -56,9 +57,48 @@
             <div class="left-headline">
               <h3>Les faces plus loué</h3>
             </div>
-              <div class="left-pie-chart">
-                <div id="chartdiv"></div>
+            <div class="left-pie-chart">
+              <div id="chartdiv"></div>
+            </div>
+            <div class="pie-info">
+              <ul class="pie-list">
+                <li class="pie-links">
+                  <i
+                    class="fal fa-rectangle-portrait"
+                    style=" background-color: #e60073;"
+                  ></i
+                  >FIXE
+                </li>
+                <li class="pie-links">
+                  <i
+                    class="fal fa-rectangle-portrait"
+                    style="  background-color: #751aff;"
+                  ></i
+                  >Déroulant
+                </li>
+                <li class="pie-links">
+                  <i
+                    class="fal fa-rectangle-portrait"
+                    style="background-color:#993366"
+                  ></i
+                  >Unipole
+                </li>
+                <li class="pie-links">
+                  <i
+                    class="fal fa-rectangle-portrait"
+                    style="  background-color:#bf4040
+                    "
+                  ></i
+                  >Façade
+                </li>
+              </ul>
+            </div>
+            <!-- <p>coluln chart</p> -->
+            <div class="left-column-chart">
+              <div class="left-column-headline">
+                <h3>Le chiffre d'affaire des faces</h3>
               </div>
+              <div id="columnChart"></div>
               <div class="pie-info">
                 <ul class="pie-list">
                   <li class="pie-links">
@@ -86,54 +126,14 @@
                     <i
                       class="fal fa-rectangle-portrait"
                       style="  background-color:#bf4040
-                    "
+                      "
                     ></i
                     >Façade
                   </li>
                 </ul>
               </div>
-              <!-- <p>coluln chart</p> -->
-              <div class="left-column-chart">
-                <div class="left-column-headline">
-                  <h3>Le chiffre d'affaire des faces</h3>
-                </div>
-                <div id="columnChart"></div>
-                <div class="pie-info">
-                  <ul class="pie-list">
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style=" background-color: #e60073;"
-                      ></i
-                      >FIXE
-                    </li>
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style="  background-color: #751aff;"
-                      ></i
-                      >Déroulant
-                    </li>
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style="background-color:#993366"
-                      ></i
-                      >Unipole
-                    </li>
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style="  background-color:#bf4040
-                      "
-                      ></i
-                      >Façade
-                    </li>
-                  </ul>
-                </div>
-
-              </div>
-              <!-- status chart -->
+            </div>
+            <!-- status chart -->
             <div class="left-status-chart">
               <div class="left-status-headline">
                 <h3>
@@ -151,77 +151,97 @@
               </div>
               <i class="fas fa-angle-double-down"></i>
               <div class="sreach-Area">
-                <select class="loadRegions" name="state">
-                </select>
-                <select class="loadFacettes" name="state">
-                </select>
-                <select class="loadFace" name="state">
-                </select>
-                <select class="loadPanneau" name="state">
-                </select>
-                <select class="loadQuartier" name="state">
-                </select>
-                <select class="loadVille" name="state">
-                </select>
+                <select class="loadRegions" name="state"> </select>
+                <select class="loadFacettes" name="state"> </select>
+                <select class="loadFace" name="state"> </select>
+                <select class="loadPanneau" name="state"> </select>
+                <select class="loadQuartier" name="state"> </select>
+                <select class="loadVille" name="state"> </select>
                 <button class="changeData" type="submit">Voir</button>
               </div>
 
               <div id="evolutionChart"></div>
             </div>
-              <!-- taux de remplissage par rapport au temps  -->
-              <div class="left-status-chart">
-                <div class="left-status-headline">
-                  <h3>
-                    Taux de remplissage par rapport au temps
-                  </h3>
-                </div>
-                <select class="loadRegions2" name="state">
-
-                </select>
-                <div id="remplissageChart"></div>
+            <!-- taux de remplissage par rapport au temps  -->
+            <div class="left-status-chart">
+              <div class="left-status-headline">
+                <h3>
+                  Taux de remplissage par rapport au temps
+                </h3>
               </div>
-               <!-- L'Anomalie par rapport les faces  -->
-              <div class="left-status-chart">
-                <div class="left-status-headline">
-                  <h3>
-                    L'Anomalie par rapport les faces
-                  </h3>
-                </div>
-                <div id="anomalieChart"></div>
-                <div class="pie-info">
-                  <ul class="pie-list">
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style=" background-color: #e60073;"
-                      ></i
-                      >FIXE
-                    </li>
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style="  background-color: #751aff;"
-                      ></i
-                      >Déroulant
-                    </li>
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style="background-color:#993366"
-                      ></i
-                      >Unipole
-                    </li>
-                    <li class="pie-links">
-                      <i
-                        class="fal fa-rectangle-portrait"
-                        style="  background-color:#bf4040
+              <i class="fas fa-angle-double-down"></i>
+              <div class="sreach-Area">
+                <select class="loadRegions" name="state"> </select>
+                <select class="loadFacettes" name="state"> </select>
+                <select class="loadFace" name="state"> </select>
+                <select class="loadPanneau" name="state"> </select>
+                <select class="loadQuartier" name="state"> </select>
+                <select class="loadVille" name="state"> </select>
+                <button class="changeData" type="submit">Voir</button>
+              </div>
+              <div id="remplissageChart"></div>
+            </div>
+            <!-- L'Anomalie par rapport les faces  -->
+            <div class="left-status-chart">
+              <div class="left-status-headline">
+                <h3>
+                  L'anomalie par rapport les faces
+                </h3>
+              </div>
+              <div id="anomalieChart"></div>
+              <div class="pie-info">
+                <ul class="pie-list">
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style=" background-color: #e60073;"
+                    ></i
+                    >FIXE
+                  </li>
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style="  background-color: #751aff;"
+                    ></i
+                    >Déroulant
+                  </li>
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style="background-color:#993366"
+                    ></i
+                    >Unipole
+                  </li>
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style="  background-color:#bf4040
                       "
-                      ></i
-                      >Façade
-                    </li>
-                  </ul>
-                </div>
+                    ></i
+                    >Façade
+                  </li>
+                </ul>
               </div>
+            </div>
+            <!-- anomalie par rapport au temps -->
+            <div class="left-status-chart">
+              <div class="left-status-headline">
+                <h3>
+                  L'anomalie
+                </h3>
+              </div>
+              <i class="fas fa-angle-double-down"></i>
+              <div class="sreach-Area">
+                <select class="loadRegions" name="state"> </select>
+                <select class="loadFacettes" name="state"> </select>
+                <select class="loadFace" name="state"> </select>
+                <select class="loadPanneau" name="state"> </select>
+                <select class="loadQuartier" name="state"> </select>
+                <select class="loadVille" name="state"> </select>
+                <button class="changeData" type="submit">Voir</button>
+              </div>
+              <div id="anomalieChartLine"></div>
+            </div>
             <!-- Map -->
           </div>
           <div class="right-content">
@@ -230,7 +250,7 @@
         </div>
       </div>
     </div>
-    </div>
+    <!-- </div> -->
     <script src="Map.js"></script>
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
@@ -242,7 +262,6 @@
       const map = new Map();
       // map.DisplayMap();
       map.ScrollFixed();
-
     </script>
   </body>
 </html>
