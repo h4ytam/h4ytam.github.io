@@ -558,7 +558,7 @@ Chart.prototype.remplissage = function() {
       success: function(data) {
         console.log(data);
         for (let i = 0; i < data.length; i++) {
-          $(".loadRegions").append(
+          $(".loadRegionsTaux").append(
             `<option value="${data[i].region}" id="loading">${
               data[i].region
             }</option>`
@@ -580,7 +580,7 @@ Chart.prototype.remplissage = function() {
       success: function(data) {
         console.log(data);
         for (let i = 0; i < data.length; i++) {
-          $(".loadFacettes").append(
+          $(".loadFacettesTaux").append(
             `<option value="${data[i].etat}" id="loading">${
               data[i].etat
             }</option>`
@@ -601,7 +601,7 @@ Chart.prototype.remplissage = function() {
       success: function(data) {
         console.log(data);
         for (let i = 0; i < data.length; i++) {
-          $(".loadFace").append(
+          $(".loadFaceTaux").append(
             `<option value="${data[i].type}" id="loading">${
               data[i].type
             }</option>`
@@ -624,7 +624,7 @@ Chart.prototype.remplissage = function() {
         // console.log(data.ville);
         // const newData=Object.entries(data)
         for (let i = 0; i < dataVille.length; i++) {
-          $(".loadVille").append(
+          $(".loadVilleTaux").append(
             `<option value="${dataVille[i].ville}" id="loading">${
               dataVille[i].ville
             }</option>`
@@ -644,12 +644,14 @@ Chart.prototype.remplissage = function() {
       url: "panneau.json", // js is lowercase!
       dataType: "json",
       success: function(data) {
+        console.log(data);
+
         // const dataVille=data.ville
         // console.log(data.ville);
         // const newData=Object.entries(data)
         for (let i = 0; i < data.length; i++) {
           //  $('.loadPanneau').select2()
-          $(".loadPanneau").append(
+          $(".loadPanneauTaux").append(
             `<option value="${data[i].type}" id="loading">${
               data[i].type
             }</option>`
@@ -671,7 +673,7 @@ Chart.prototype.remplissage = function() {
         // const newData=Object.entries(data)
         for (let i = 0; i < data.length; i++) {
           //  $('.loadPanneau').select2()
-          $(".loadQuartier").append(
+          $(".loadQuartierTaux").append(
             `<option value="${data[i].type}" id="loading">${
               data[i].type
             }</option>`
@@ -874,6 +876,28 @@ Chart.prototype.anomalieChartLine = function() {
       chart.data = generatechartData();
       return false;
     });
+
+    $.ajax({
+      type: "GET",
+      url: "quartier.json", // js is lowercase!
+      dataType: "json",
+      success: function(data) {
+        // const dataVille=data.ville
+        // console.log(data.ville);
+        // const newData=Object.entries(data)
+        for (let i = 0; i < data.length; i++) {
+          //  $('.loadPanneau').select2()
+          $(".loadQuartierAno").append(
+            `<option value="${data[i].type}" id="loading">${
+              data[i].type
+            }</option>`
+          );
+        }
+        $(".loadQuartier").change(function() {
+          // var selectedQuartier = $(this).children("option:selected").val();
+        });
+      },
+    });
     $.ajax({
       type: "GET",
       url: "regions.json", // js is lowercase!
@@ -881,7 +905,7 @@ Chart.prototype.anomalieChartLine = function() {
       success: function(data) {
         console.log(data);
         for (let i = 0; i < data.length; i++) {
-          $(".loadRegions").append(
+          $(".loadRegionsAno").append(
             `<option value="${data[i].region}" id="loading">${
               data[i].region
             }</option>`
@@ -903,7 +927,7 @@ Chart.prototype.anomalieChartLine = function() {
       success: function(data) {
         console.log(data);
         for (let i = 0; i < data.length; i++) {
-          $(".loadFacettes").append(
+          $(".loadFacettesAno").append(
             `<option value="${data[i].etat}" id="loading">${
               data[i].etat
             }</option>`
@@ -924,7 +948,7 @@ Chart.prototype.anomalieChartLine = function() {
       success: function(data) {
         console.log(data);
         for (let i = 0; i < data.length; i++) {
-          $(".loadFace").append(
+          $(".loadFaceAno").append(
             `<option value="${data[i].type}" id="loading">${
               data[i].type
             }</option>`
@@ -947,7 +971,7 @@ Chart.prototype.anomalieChartLine = function() {
         // console.log(data.ville);
         // const newData=Object.entries(data)
         for (let i = 0; i < dataVille.length; i++) {
-          $(".loadVille").append(
+          $(".loadVilleAno").append(
             `<option value="${dataVille[i].ville}" id="loading">${
               dataVille[i].ville
             }</option>`
@@ -972,7 +996,7 @@ Chart.prototype.anomalieChartLine = function() {
         // const newData=Object.entries(data)
         for (let i = 0; i < data.length; i++) {
           //  $('.loadPanneau').select2()
-          $(".loadPanneau").append(
+          $(".loadPanneauAno").append(
             `<option value="${data[i].type}" id="loading">${
               data[i].type
             }</option>`

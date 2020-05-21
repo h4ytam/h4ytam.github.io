@@ -223,6 +223,31 @@
   height: 26px;
   margin: 7px 6px 4px 4px;
 }
+
+.loadRegionsTaux,
+.loadVilleTaux,
+.loadPanneauTaux,
+.loadQuartierTaux,
+.loadFaceTaux,
+.loadFacettesTaux {
+  width: 163px;
+  border: 1px solid #8e8f90;
+  height: 26px;
+  margin: 7px 6px 4px 4px;
+}
+
+.loadRegionsAno,
+.loadVilleAno,
+.loadPanneauAno,
+.loadQuartierAno,
+.loadFaceAno,
+.loadFacettesAno {
+  width: 163px;
+  border: 1px solid #8e8f90;
+  height: 26px;
+  margin: 7px 6px 4px 4px;
+}
+
 .changeData {
   background-color: #ffffff;
   outline: none;
