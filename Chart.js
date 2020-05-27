@@ -256,8 +256,8 @@ Chart.prototype.ChiffreDaffaire = function() {
       return chartData;
     }
 
-    $(".fa-angle-double-down").click(function() {
-      $(".sreach-Area").slideToggle();
+    $(".evolution").click(function() {
+      $(".sreach-AreaEvo").slideToggle();
     });
 
     $(".changeData").on("click", function(e) {
@@ -529,8 +529,9 @@ Chart.prototype.remplissage = function() {
       return chartData;
     }
 
-    $(".fa-angle-double-down").click(function() {
-      $(".sreach-Area").slideToggle();
+    $(".remplissage").click(function() {
+      // alert("zeaeaze");
+      $(".sreach-AreaRemp").slideToggle();
     });
 
     $(".changeData").on("click", function(e) {
@@ -854,8 +855,8 @@ Chart.prototype.anomalieChartLine = function() {
       return chartData;
     }
 
-    $(".fa-angle-double-down").click(function() {
-      $(".sreach-Area").slideToggle();
+    $(".anomalie").click(function() {
+      $(".sreach-AreaAno").slideToggle();
     });
 
     $(".changeData").on("click", function(e) {

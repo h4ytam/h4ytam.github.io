@@ -208,7 +208,9 @@
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-.sreach-Area {
+.sreach-AreaAno,
+.sreach-AreaEvo,
+.sreach-AreaRemp {
   background-color: #39c1ff6e;
   height: 90px;
 }
@@ -264,3 +266,13 @@
   margin-top: 3px;
   /* color: #fff; */
 }
+/* .left-column-chart {
+  margin-top: 9px;
+} */
+
+.anomalie {
+  margin-top: 9px;
+}
+/* .left-content > .left-status-chart {
+  margin-top: 105px;
+} */

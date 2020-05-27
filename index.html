@@ -93,46 +93,7 @@
                 </li>
               </ul>
             </div>
-            <!-- <p>coluln chart</p> -->
-            <div class="left-column-chart">
-              <div class="left-column-headline">
-                <h3>Le chiffre d'affaire des faces</h3>
-              </div>
-              <div id="columnChart"></div>
-              <div class="pie-info">
-                <ul class="pie-list">
-                  <li class="pie-links">
-                    <i
-                      class="fal fa-rectangle-portrait"
-                      style=" background-color: #e60073;"
-                    ></i
-                    >FIXE
-                  </li>
-                  <li class="pie-links">
-                    <i
-                      class="fal fa-rectangle-portrait"
-                      style="  background-color: #751aff;"
-                    ></i
-                    >Déroulant
-                  </li>
-                  <li class="pie-links">
-                    <i
-                      class="fal fa-rectangle-portrait"
-                      style="background-color:#993366"
-                    ></i
-                    >Unipole
-                  </li>
-                  <li class="pie-links">
-                    <i
-                      class="fal fa-rectangle-portrait"
-                      style="  background-color:#bf4040
-                      "
-                    ></i
-                    >Façade
-                  </li>
-                </ul>
-              </div>
-            </div>
+
             <!-- status chart -->
             <div class="left-status-chart">
               <div class="left-status-headline">
@@ -149,8 +110,8 @@
                   L'evolution de chiffre d'affaire par rapport du temps
                 </h3>
               </div>
-              <i class="fas fa-angle-double-down"></i>
-              <div class="sreach-Area">
+              <i class="fas fa-angle-double-down evolution"></i>
+              <div class="sreach-AreaEvo">
                 <select class="loadRegions" name="state"> </select>
                 <select class="loadFacettes" name="state"> </select>
                 <select class="loadFace" name="state"> </select>
@@ -162,27 +123,32 @@
 
               <div id="evolutionChart"></div>
             </div>
-            <!-- taux de remplissage par rapport au temps  -->
+
+            <!-- anomalie par rapport au temps -->
             <div class="left-status-chart">
               <div class="left-status-headline">
                 <h3>
-                  Taux de remplissage par rapport au temps
+                  L'anomalie
                 </h3>
               </div>
-              <i class="fas fa-angle-double-down"></i>
-              <div class="sreach-Area">
-                <select class="loadRegionsTaux" name="state"> </select>
-                <select class="loadFacettesTaux" name="state"> </select>
-                <select class="loadFaceTaux" name="state"> </select>
-                <select class="loadPanneauTaux" name="state"> </select>
-                <select class="loadQuartierTaux" name="state"> </select>
-                <select class="loadVilleTaux" name="state"> </select>
+              <i class="fas fa-angle-double-down anomalie"></i>
+              <div class="sreach-AreaAno">
+                <select class="loadRegionsAno" name="state"> </select>
+                <select class="loadFacettesAno" name="state"> </select>
+                <select class="loadFaceAno" name="state"> </select>
+                <select class="loadPanneauAno" name="state"> </select>
+                <select class="loadQuartierAno" name="state"> </select>
+                <select class="loadVilleAno" name="state"> </select>
                 <button class="changeData" type="submit">Voir</button>
               </div>
-              <div id="remplissageChart"></div>
+              <div id="anomalieChartLine"></div>
             </div>
+            <!-- Map -->
+          </div>
+          <div class="right-content">
+            <!-- <div id="map"></div> -->
             <!-- L'Anomalie par rapport les faces  -->
-            <div class="left-status-chart">
+            <div class="left-status-chart anomalie">
               <div class="left-status-headline">
                 <h3>
                   L'anomalie par rapport les faces
@@ -216,36 +182,72 @@
                     <i
                       class="fal fa-rectangle-portrait"
                       style="  background-color:#bf4040
-                      "
+                        "
                     ></i
                     >Façade
                   </li>
                 </ul>
               </div>
             </div>
-            <!-- anomalie par rapport au temps -->
+            <!-- taux de remplissage par rapport au temps  -->
             <div class="left-status-chart">
               <div class="left-status-headline">
                 <h3>
-                  L'anomalie
+                  Taux de remplissage par rapport au temps
                 </h3>
               </div>
-              <i class="fas fa-angle-double-down"></i>
-              <div class="sreach-Area">
-                <select class="loadRegionsAno" name="state"> </select>
-                <select class="loadFacettesAno" name="state"> </select>
-                <select class="loadFaceAno" name="state"> </select>
-                <select class="loadPanneauAno" name="state"> </select>
-                <select class="loadQuartierAno" name="state"> </select>
-                <select class="loadVilleAno" name="state"> </select>
+              <i class="fas fa-angle-double-down remplissage"></i>
+              <div class="sreach-AreaRemp">
+                <select class="loadRegionsTaux" name="state"> </select>
+                <select class="loadFacettesTaux" name="state"> </select>
+                <select class="loadFaceTaux" name="state"> </select>
+                <select class="loadPanneauTaux" name="state"> </select>
+                <select class="loadQuartierTaux" name="state"> </select>
+                <select class="loadVilleTaux" name="state"> </select>
                 <button class="changeData" type="submit">Voir</button>
               </div>
-              <div id="anomalieChartLine"></div>
+              <div id="remplissageChart"></div>
             </div>
-            <!-- Map -->
-          </div>
-          <div class="right-content">
-            <div id="map"></div>
+            <!-- <p>coluln chart</p> -->
+            <div class="left-column-chart">
+              <div class="left-column-headline">
+                <h3>Le chiffre d'affaire des faces</h3>
+              </div>
+              <div id="columnChart"></div>
+              <div class="pie-info">
+                <ul class="pie-list">
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style=" background-color: #e60073;"
+                    ></i
+                    >FIXE
+                  </li>
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style="  background-color: #751aff;"
+                    ></i
+                    >Déroulant
+                  </li>
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style="background-color:#993366"
+                    ></i
+                    >Unipole
+                  </li>
+                  <li class="pie-links">
+                    <i
+                      class="fal fa-rectangle-portrait"
+                      style="  background-color:#bf4040
+                        "
+                    ></i
+                    >Façade
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
